@@ -4,19 +4,18 @@ class Die {
     var isLocked = false
         private set
 
-    fun roll() {
-        when (isLocked) {
-            false -> value = (1..6).random()
-            true -> return
-        }
-    }
-
     fun lock() {
         isLocked = true
     }
 
     fun unlock() {
         isLocked = false
+    }
+
+    fun roll(){
+        if(!isLocked){
+            value = (1..6).random()
+        }
     }
 
 }
